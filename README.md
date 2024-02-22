@@ -1,8 +1,10 @@
-# SaGE - Semantic Graph Entropy
+# SaGE: Evaluating Moral Consistency in Large Language Models
+
+This is the official repo implementing [SaGE: Evaluating Moral Consistency in Large Language Models](https://arxiv.org/abs/2402.13709) accepted at LREC-COLING 2024.
 
 # Pipeline
 
-1. Input is a list of questions and the model
+1. Input is a list of  questions and the model
 2. Paraphrases for each question are produced
 3. Model output is generated for each paraphrase
 4. RoTs are generated for each question, output pair
