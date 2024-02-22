@@ -1,6 +1,6 @@
 # SaGE: Evaluating Moral Consistency in Large Language Models
 
-This is the official repo implementing [SaGE: Evaluating Moral Consistency in Large Language Models](https://arxiv.org/abs/2402.13709) accepted at LREC-COLING 2024.
+This repo implements [https://arxiv.org/abs/2402.13709](https://arxiv.org/abs/2402.13709) accepted at LREC-COLING 2024.
 
 # Pipeline
 
