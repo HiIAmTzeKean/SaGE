@@ -1,4 +1,4 @@
-# SaGE and MCC
+# SaGE | MCC
 
 This repository implements [SaGE: Evaluating Moral Consistency in Large Language
 Models](https://arxiv.org/abs/2402.13709) by [Vamshi B](https://scholar.google.com/citations?user=U6p6540AAAAJ&hl=en), [Sreeram V](https://scholar.google.com/citations?hl=en&user=tpfPG1kAAAAJ), [Priyanshul G](https://scholar.google.com/citations?user=FNRFWH8AAAAJ&hl=en), [PK](https://scholar.google.com/citations?user=MfzQyP8AAAAJ&hl=en) and [Manas Gaur](https://scholar.google.co.in/citations?user=VJ8ZdCEAAAAJ&hl=en) accepted at LREC-COLING 2024.
