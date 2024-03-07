@@ -111,14 +111,9 @@ scripts/
 1. `edge_generation.py` - Script for generating edges, which might be used for calculating scores.
 2. `hella_swag/pipeline.py` - Specialized pipeline script for the "hella_swag" dataset.
 3. `model_output.py` - Script for generating model outputs for input questions.
-4. `moral_choice/model_output.py` - Model output script specialized for the "moral_choice" dataset.
-5. `moral_choice/para_generation.py` - Script for generating paraphrases for "moral_choice" questions.
-6. `moral_choice/pipeline.py` - Specialized pipeline script for the "moral_choice" dataset.
-7. `multi_rot/multi_edge_generation.py` - Script for generating multiple edges, for analyzing variations.
-8. `multi_rot/multi_rot_generation.py` - Script for generating multiple RoTs.
-9. `pair_generation.py` - Script for generating (questions, model output) pairs.
-10. `para_generation.py` - Script for generating paraphrases for questions.
-11. `pipeline.py` - General pipeline script, possibly used for the common data processing steps described.
-12. `rot_generation.py` - Script for generating RoTs for model output.
-13. `t_analysis/tedge_generation.py` - Script for generating temperature-specific edges.
-14. `t_analysis/tpair_generation.py` - Script for generating temperature-specific pairs of data.
+4. `pair_generation.py` - Script for generating (questions, model output) pairs.
+5. `para_generation.py` - Script for generating paraphrases for questions.
+6. `pipeline.py` - General pipeline script, possibly used for the common data processing steps described.
+7. `rot_generation.py` - Script for generating RoTs for model output.
+8. `t_analysis/tedge_generation.py` - Script for generating temperature-specific edges.
+9. `t_analysis/tpair_generation.py` - Script for generating temperature-specific pairs of data.
