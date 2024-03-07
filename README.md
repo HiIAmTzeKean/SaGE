@@ -1,21 +1,27 @@
-# SaGE: Evaluating Moral Consistency in Large Language Models
+# SaGE and MCC
 
-This repo implements [https://arxiv.org/abs/2402.13709](https://arxiv.org/abs/2402.13709) accepted at LREC-COLING 2024.
+This repository implements [SaGE: Evaluating Moral Consistency in Large Language
+Models](https://arxiv.org/abs/2402.13709) by [Vamshi B](https://scholar.google.com/citations?user=U6p6540AAAAJ&hl=en), [Sreeram V](https://scholar.google.com/citations?hl=en&user=tpfPG1kAAAAJ), [Priyanshul G](https://scholar.google.com/citations?user=FNRFWH8AAAAJ&hl=en), [PK](https://scholar.google.com/citations?user=MfzQyP8AAAAJ&hl=en) and [Manas Gaur](https://scholar.google.co.in/citations?user=VJ8ZdCEAAAAJ&hl=en) accepted at LREC-COLING 2024.
 
 # Pipeline
 
-1. Input is a list of  questions and the model
+![alt text](pipeline.png)
+
+1. Input is a list of questions and the model
 2. Paraphrases for each question are produced
 3. Model output is generated for each paraphrase
 4. RoTs are generated for each question, output pair
-5. Generated data is passed to SGE
+5. Generated data is passed to SaGE
 6. Metrics are returned
 
-# Usage
+# Library
 
 The SAGE library is designed to evaluate the consistency of generative models. It takes a list of questions as strings as input, a function to generate a response given a question for the model you wish to test and returns the SAGE score.
 
+You can use `pip install -e .` to install local pip libraries.
+
 ## Function Signature
+
 ```python
 score(questions, get_response, use_rots=True)
 ```
@@ -63,89 +69,56 @@ print(results)
 
 # Repo Structure
 
-## Scripts
-
-```bash
-.
-├── scripts
-│   ├── dataset.py
-│   ├── edge_generation.py
-│   ├── hella_swag
-│   │   └── pipeline.py
-│   ├── improve.py
-│   ├── model_output.py
-│   ├── moral_choice
-│   │   ├── model_output.py
-│   │   ├── para_generation.py
-│   │   └── pipeline.py
-│   ├── multi_rot
-│   │   ├── multi_edge_generation.py
-│   │   └── multi_rot_generation.py
-│   ├── pair_generation.py
-│   ├── para_generation.py
-│   ├── pipeline.py
-│   ├── rot_generation.py
-│   └── t_anal
-│       ├── tedge_generation.py
-│       └── tpair_generation.py
-```
-
-#### Scripts
-
-1. `dataset.py` - A script to get sample from MCC
-2. `edge_generation.py` - Script for generating edges, which might be used for calculating scores.
-3. `hella_swag/pipeline.py` - Specialized pipeline script for the "hella_swag" dataset.
-4. `improve.py` - A script used to improve model consistency.
-5. `model_output.py` - Script for generating model outputs for input questions.
-6. `moral_choice/model_output.py` - Model output script specialized for the "moral_choice" dataset.
-7. `moral_choice/para_generation.py` - Script for generating paraphrases for "moral_choice" questions.
-8. `moral_choice/pipeline.py` - Specialized pipeline script for the "moral_choice" dataset.
-9. `multi_rot/multi_edge_generation.py` - Script for generating multiple edges, for analyzing variations.
-10. `multi_rot/multi_rot_generation.py` - Script for generating multiple RoTs.
-11. `pair_generation.py` - Script for generating (questions, model output) pairs.
-12. `para_generation.py` - Script for generating paraphrases for questions.
-13. `pipeline.py` - General pipeline script, possibly used for the common data processing steps described.
-14. `rot_generation.py` - Script for generating RoTs for model output.
-15. `t_anal/tedge_generation.py` - Script for generating temperature-specific edges.
-16. `t_anal/tpair_generation.py` - Script for generating temperature-specific pairs of data.
-
 ## Data
 
+### Structure
+
 ```bash
-data
-├── all
-├── datasets
-├── mcc
-├── moral100
-│   ├── high_amb
-│   │   └── gpt-3.5-turbo
-│   └── low_amb
-├── quality100
-│   ├── context_edges
-│   ├── h_anal
-│   ├── imp
-│   ├── multi_rot
-│   └── t_anal
-│       ├── Edges
-│       ├── Model
-│       └── Pairs
-├── responses
-│   ├── lmsys
-│   ├── meta-llama
-│   ├── mosaicml
-│   └── tiiuae
-└── tQA
+data/
+├── README.md
+└── mcc
+    ├── mcc.csv
+    └── mcc_moral.csv
 ```
 
-- `mcc` - Contains 50,000 moral scenarios, part of the Moral Consistency Corpus dataset.
-- `high_amb` - Related to high ambiguity data within the "moral100" dataset.
-    - `gpt-3.5-turbo` - Contains specialized data or scripts related to the GPT-3.5 Turbo model for high ambiguity data.
-- `low_amb` - Related to low ambiguity data within the "moral100" dataset.
-- `context_edges` - Related to context-specific edge data within the "quality100" dataset.
-- `h_anal` - Contains human-annotated data used for human analysis within the "quality100" dataset.
-- `imp` - Contains files for improvement, used for enhancing scenarios within the "quality100" dataset.
-- `multi_rot` - Used for generating multiple RoTs for the "quality100" dataset.
-- `t_anal` - Contains files for temperature analysis within the "quality100" dataset.
-    - `Edges` - Contains edge files specific to temperature analysis.
-    - `Model` - Contains model output files for temperature analysis.
-    - `Pairs` - Used for storing pair files related to temperature analysis.
+### Descriptions
+
+- `README.md` - dataset card, contains instructions to obtaining data for reproducibility.
+- `mcc.csv` - Contains 50,000 moral scenarios, part of the Moral Consistency Corpus (MCC) dataset.
+- `mcc_moral.csv` - Contains the moral categories for each question in MCC.
+
+## Scripts
+
+### Structure
+
+```bash
+scripts/
+├── edge_generation.py
+├── hella_swag
+│   └── pipeline.py
+├── model_output.py
+├── pair_generation.py
+├── para_generation.py
+├── pipeline.py
+├── rot_generation.py
+└── t_analysis
+    ├── tedge_generation.py
+    └── tpair_generation.py
+```
+
+### Descriptions
+
+1. `edge_generation.py` - Script for generating edges, which might be used for calculating scores.
+2. `hella_swag/pipeline.py` - Specialized pipeline script for the "hella_swag" dataset.
+3. `model_output.py` - Script for generating model outputs for input questions.
+4. `moral_choice/model_output.py` - Model output script specialized for the "moral_choice" dataset.
+5. `moral_choice/para_generation.py` - Script for generating paraphrases for "moral_choice" questions.
+6. `moral_choice/pipeline.py` - Specialized pipeline script for the "moral_choice" dataset.
+7. `multi_rot/multi_edge_generation.py` - Script for generating multiple edges, for analyzing variations.
+8. `multi_rot/multi_rot_generation.py` - Script for generating multiple RoTs.
+9. `pair_generation.py` - Script for generating (questions, model output) pairs.
+10. `para_generation.py` - Script for generating paraphrases for questions.
+11. `pipeline.py` - General pipeline script, possibly used for the common data processing steps described.
+12. `rot_generation.py` - Script for generating RoTs for model output.
+13. `t_analysis/tedge_generation.py` - Script for generating temperature-specific edges.
+14. `t_analysis/tpair_generation.py` - Script for generating temperature-specific pairs of data.
