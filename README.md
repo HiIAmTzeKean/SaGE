@@ -71,6 +71,8 @@ print(results)
 
 ## Data
 
+This repo only contains the main dataset, to find the data required to reproduce results, please read `data/README.md`.
+
 ### Structure
 
 ```bash

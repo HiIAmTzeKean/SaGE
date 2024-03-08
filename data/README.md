@@ -5,6 +5,12 @@ Despite recent advancements showcasing the impressive capabilities of Large Lang
 - `mcc/mcc.csv` is the complete dataset
 - `mcc/mcc_moral.csv` is the dataset with moral categories for each question id
 
+# Reproducility
+
+To download our data to reproduce results, please visit the dataset hosted by Mendeley.
+
+> [MCC - Mendeley Data](https://data.mendeley.com/datasets/68dkhk8gch/1)
+
 ### Models Tested
 
 - meta-llama/Llama-2-7b-chat-hf
