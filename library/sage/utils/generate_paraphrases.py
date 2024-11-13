@@ -42,8 +42,8 @@ Paraphrase {question}
 # Output
 """
 
-    model = "lmsys/vicuna-13b-v1.3"
-    tokenizer = AutoTokenizer.from_pretrained(model, legacy=True)
+    model = "t5-base"
+    tokenizer = AutoTokenizer.from_pretrained(model)
     scorer = ParaScorer(lang="en", model_type = 'bert-base-uncased')
 
     pipeline = transformers.pipeline(
